@@ -178,7 +178,7 @@ public class MyClient extends JFrame implements ActionListener{
 				PrintStream out = new PrintStream(sock.getOutputStream());
 				out.println("註冊" + name + " " + ip);
 				out.flush();
-				//³s½u¦¨¥\
+				//連線成功
 				state.setText("網路建立-登入成功");
 				System.out.println("網路建立-連線成功");
 			}
