@@ -15,13 +15,13 @@ public class MyServer{
 	public static void main (String args[]) throws IOException {
 		//抓檔資料
 		FileReader fr = new FileReader("log.txt");
-        BufferedReader br = new BufferedReader(fr);
+		BufferedReader br = new BufferedReader(fr);
 		
 		new MyServer().go(br);     
 	}
-		//--------------------------------------------------------------//
-		//-2-建位連線
-		//--------------------------------------------------------------//
+	//--------------------------------------------------------------//
+	//-2-建位連線
+	//--------------------------------------------------------------//
 	public void go(BufferedReader MembersInfor){
 		//顯示目前所有註冊帳號
 		
@@ -88,11 +88,9 @@ public class MyServer{
 		public Process(Socket cSocket){
 			try{
 				sock = cSocket;
-				//¨ú±oSocketªº¿é¤J¸ê®Æ¬y
+				//取得Socket的輸入資料流
 				InputStreamReader isReader = new InputStreamReader(sock.getInputStream());
-				
 				reader = new BufferedReader(isReader);
-				
 			}catch(Exception ex){
 				System.out.println("連接失敗Process");
 			} 
@@ -103,7 +101,7 @@ public class MyServer{
 		public void run(){
 			String message;
 			try{
-			//讀取資料
+				//讀取資料
 				while ((message = reader.readLine())!=null){
 					System.out.println("收到"+message);
 					tellApiece(message);
