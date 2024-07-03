@@ -9,7 +9,7 @@ import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 //--------------------------------------------------------------//
-//MyClient¥DÃþ§OÀÉ
+//MyClient主類別檔
 //--------------------------------------------------------------//
 public class MyClient extends JFrame implements ActionListener{
 	//宣告區
@@ -18,13 +18,13 @@ public class MyClient extends JFrame implements ActionListener{
 	BufferedReader	reader;
 	//BufferedReader  reader2;
 	PrintStream	writer;
-    //建立Socket變數
+	//建立Socket變數
 	Socket	sock;
 	//Socket    sock2;
 	//顯示區域
-	JTextArea	incoming = new JTextArea(15,35);    //聊天顯示框(高,寬)
-	JTextArea	mem = new JTextArea(15,10);    //成員顯示框(寬)
-	//¿é¤J°Ï°ì
+	JTextArea	incoming = new JTextArea(15,35);   //聊天顯示框(高,寬)
+	JTextArea	mem = new JTextArea(15,10);        //成員顯示框(寬)
+	//輸入區域
 	JTextField	outgoing = new JTextField(20);     //文字輸入對話框(寬)
 	JLabel	jlmane   = new JLabel("輸入帳號：");
 	JLabel	jlip  = new JLabel("輸入密碼：");
@@ -35,7 +35,7 @@ public class MyClient extends JFrame implements ActionListener{
 	MenuBar mBar = new MenuBar();
 	//File
 	Menu mFile = new Menu("檔案");
-    //Save
+	//Save
 	MenuItem mFileSave=new MenuItem("儲存檔案");
 	//--------------------------------------------------------------//
 	//-1-主程式進入點
@@ -49,7 +49,7 @@ public class MyClient extends JFrame implements ActionListener{
 	MyClient (){
 		//設定及宣告視窗物件
 		//建立視窗JFrame
-		super("¦h¤J³s½uClientºÝ");
+		super("多入連線Client端");
 		//用來放mane及ip--設定區域
 		JPanel maneipPanel  = new JPanel();
 		//建登入按鍵
@@ -69,7 +69,7 @@ public class MyClient extends JFrame implements ActionListener{
 		//設定
 		maneipPanel.add(setmaneip);
 		maneipPanel.add(setmaneip2);
-        //排版BorderLayout設定區域在上方----
+		//排版BorderLayout設定區域在上方----
 		getContentPane().add(BorderLayout.NORTH,maneipPanel);
 		
 		//JButton("送出")
@@ -150,7 +150,7 @@ public class MyClient extends JFrame implements ActionListener{
 				PrintStream out = new PrintStream(sock.getOutputStream());
 				out.println("登入" + name + " " + ip);
 				out.flush();
-				//³s½u¦¨¥\
+				//連線成功
 				state.setText("網路建立-登入成功");
 				System.out.println("網路建立-連線成功");
 			}
